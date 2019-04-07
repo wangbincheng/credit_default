@@ -16,6 +16,7 @@ data = data = pd.read_csv('./UCI_Credit_Card.csv')
 # 数据探索
 print(data.shape) # 查看数据集大小
 print(data.describe()) # 数据集概览
+
 # 查看下一个月违约率的情况
 next_month = data['default.payment.next.month'].value_counts()
 print(next_month)
@@ -27,6 +28,7 @@ sns.set_color_codes("pastel")
 sns.barplot(x = 'default.payment.next.month', y="values", data=df)
 locs, labels = plt.xticks()
 plt.show()
+
 # 特征选择，去掉ID字段、最后一个结果字段即可
 data.drop(['ID'], inplace=True, axis =1) #ID这个字段没有用
 target = data['default.payment.next.month'].values
